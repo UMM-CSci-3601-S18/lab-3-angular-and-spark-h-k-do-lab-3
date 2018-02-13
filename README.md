@@ -1,3 +1,4 @@
+Hi Travis CI
 # CSCI 3601 Lab #3 - Angular and Spark Lab
 [![Build Status](https://travis-ci.org/UMM-CSci-3601/3601-lab3_angular-spark.svg?branch=master)](https://travis-ci.org/UMM-CSci-3601/3601-lab3_angular-spark)
 
