@@ -1,0 +1,8 @@
+E2E test coverage- 
+
+types "Fry" into name field
+types "homework" into category field
+types "voluptate" into body
+types "true" into status field
+
+checks if what appears on highlight matches the todo returned
