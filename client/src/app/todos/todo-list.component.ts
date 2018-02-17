@@ -62,7 +62,7 @@ export class TodoListComponent implements OnInit {
     //filter by category
     if (searchCategory != null) {
       this.filteredTodos = this.filteredTodos.filter(todo => {
-        return !searchCategory || todo.owner.toLowerCase().indexOf(searchCategory) !== -1;
+        return !searchCategory || todo.category.toLowerCase().indexOf(searchCategory) !== -1;
       });
     }
 
