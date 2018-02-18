@@ -19,6 +19,7 @@ export class TodoListComponent implements OnInit {
   public todoStatus: string;
   public todoCategory: string;
   public todoBody: string;
+  public todoID: string;
 
 
   // Inject the UserListService into this component.
@@ -46,6 +47,7 @@ export class TodoListComponent implements OnInit {
     }
 
     // Filter by status
+/*
     if (searchStatus != null) {
       this.filteredTodos = this.filteredTodos.filter((todo) => {
         if(searchStatus.toLowerCase() == "true" || searchStatus.toLowerCase() == "complete"){
@@ -58,11 +60,11 @@ export class TodoListComponent implements OnInit {
         return false;
       });
     }
-
+*/
     //filter by category
     if (searchCategory != null) {
       this.filteredTodos = this.filteredTodos.filter(todo => {
-        return !searchCategory || todo.owner.toLowerCase().indexOf(searchCategory) !== -1;
+        return !searchCategory || todo.category.toLowerCase().indexOf(searchCategory) !== -1;
       });
     }
 
@@ -84,7 +86,7 @@ export class TodoListComponent implements OnInit {
    */
   refreshTodos(): Observable<Todo[]> {
 
-    const todos: Observable<Todo[]> = this.todoListService.getTodos();
+    const todos: Observable<Todo[]> = this.todoListService.getTodos(this.todoStatus);
     todos.subscribe(
       returnedTodos => {
         this.todos = returnedTodos;
@@ -96,6 +98,22 @@ export class TodoListComponent implements OnInit {
     return todos;
   }
 
+  refreshTodo(): Observable<Todo> {
+
+    console.log("this actually happened");
+    const todo: Observable<Todo> = this.todoListService.getTodoById(this.todoID);
+    todo.subscribe(
+      returnedTodo => {
+        console.log("I was in here the whole time");
+        this.todos = [];
+        this.todos.push(returnedTodo)
+        this.filterTodos(this.todoOwner, this.todoStatus, this.todoCategory, this.todoBody );
+      },
+      err => {
+        console.log(err);
+      });
+    return todo;
+  }
 
   ngOnInit(): void {
     this.refreshTodos();

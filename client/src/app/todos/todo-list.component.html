@@ -5,6 +5,13 @@
       <mat-divider></mat-divider>
       <mat-card-content>
         <mat-form-field>
+          <input matInput id="todoID" #input placeholder="Search by ID"
+                 (input)="todoID = $event.target.value">
+        </mat-form-field>
+        <button type="button" id="1" (click)="refreshTodo()"> Search </button>
+        <button type="button" id="2" (click)="refreshTodos()"> Reset </button>
+        <br>
+        <mat-form-field>
           <input matInput id="todoOwner" #input placeholder="Filter by name"
                  (input)="todoOwner = $event.target.value">
         </mat-form-field>
