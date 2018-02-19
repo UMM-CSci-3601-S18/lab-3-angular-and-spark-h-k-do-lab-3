@@ -77,7 +77,7 @@ describe('Todo list', () => {
   });
 
   it('contain a todo owned by \'Blanche\'', () => {
-    expect(todosList.todos.some((todo: Todo) => todo.owner === 'Blanche')).toBe(true);
+    expect(todoList.todos.some((todo: Todo) => todo.owner === 'Blanche')).toBe(true);
   });
 
   it('doesn\'t contain a user named \'Santa\'', () => {

@@ -15,15 +15,8 @@ export class TodoListService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getTodos(status : string): Observable<Todo[]> {
-    if(status === "true" || status === "complete"){
-      return this.httpClient.get<Todo[]>(this.trueTodoUrl);
-    } else if (status === "false" || status === "incomplete"){
-      return this.httpClient.get<Todo[]>(this.falseTodoUrl);
-    } else {
+  getTodos(): Observable<Todo[]> {
       return this.httpClient.get<Todo[]>(this.todoUrl);
-    }
-
   }
 
   getTodoById(id: string): Observable<Todo> {

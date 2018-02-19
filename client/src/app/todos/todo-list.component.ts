@@ -86,7 +86,7 @@ export class TodoListComponent implements OnInit {
    */
   refreshTodos(): Observable<Todo[]> {
 
-    const todos: Observable<Todo[]> = this.todoListService.getTodos(this.todoStatus);
+    const todos: Observable<Todo[]> = this.todoListService.getTodos();
     todos.subscribe(
       returnedTodos => {
         this.todos = returnedTodos;
