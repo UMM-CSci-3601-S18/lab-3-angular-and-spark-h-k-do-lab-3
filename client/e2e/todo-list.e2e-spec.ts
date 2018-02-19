@@ -36,7 +36,14 @@ describe('Todo list', () => {
     page.typeABody('voluptate');
     page.typeAStatus("true");
 
-    expect(page.getUniqueTodo("owner: Fry, status: true")).toEqual("58895985694d5db4f804ab3b");
+    expect(page.getUniqueTodo("58895985694d5db4f804ab3b")).toEqual("58895985694d5db4f804ab3b"); //"owner: Fry, status: true"
+  });
+
+  it('should type something in search by id box', ()=> {
+    page.navigateTo();
+    page.typeAnID('58895985a22c04e761776d54');
+
+    expect(page.getUniqueTodo('58895985a22c04e761776d54')).toEqual('58895985a22c04e761776d54'); //'owner: Blanche, status: false'
   });
 
 });

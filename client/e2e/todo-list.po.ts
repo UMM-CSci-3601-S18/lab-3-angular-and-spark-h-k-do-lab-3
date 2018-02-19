@@ -50,6 +50,16 @@ export class TodoPage {
     input.sendKeys(status);
   }
 
+  typeAnID(id: string) {
+    let input = element(by.id('1'));
+    let input2 = element(by.id('todoID'));
+
+    input2.click();
+    input2.sendKeys(id);
+
+    input.click();
+  }
+
   backspace(){
     browser.actions().sendKeys(Key.BACK_SPACE).perform();
   }
