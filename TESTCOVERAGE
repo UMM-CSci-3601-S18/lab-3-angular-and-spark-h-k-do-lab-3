@@ -1,8 +1,20 @@
-E2E test coverage- 
-
-types "Fry" into name field
-types "homework" into category field
-types "voluptate" into body
-types "true" into status field
+E2E test coverage-
 
 checks if what appears on highlight matches the todo returned
+
+should type something in filter name box and check that it returned correct element
+  -tests all the angular filtering methods
+  types "Fry" into name field
+  types "homework" into category field
+  types "voluptate" into body
+  types "true" into status field
+
+should type something in search by id box and reset
+ -tests server side filtering and the two button functionality
+ types "58895985a22c04e761776d54" into id field
+ presses search button
+ checks if an expected value is there
+ presses reset button
+ checks if an expected value is there
+
+

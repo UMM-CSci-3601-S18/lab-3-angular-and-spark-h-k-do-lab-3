@@ -36,14 +36,18 @@ describe('Todo list', () => {
     page.typeABody('voluptate');
     page.typeAStatus("true");
 
-    expect(page.getUniqueTodo("58895985694d5db4f804ab3b")).toEqual("58895985694d5db4f804ab3b"); //"owner: Fry, status: true"
+    expect(page.getUniqueTodo("58895985694d5db4f804ab3b")).toEqual("58895985694d5db4f804ab3b");
   });
 
-  it('should type something in search by id box', ()=> {
+  it('should type something in search by id box and reset', ()=> {
     page.navigateTo();
     page.typeAnID('58895985a22c04e761776d54');
 
-    expect(page.getUniqueTodo('58895985a22c04e761776d54')).toEqual('58895985a22c04e761776d54'); //'owner: Blanche, status: false'
+    expect(page.getUniqueTodo('58895985a22c04e761776d54')).toEqual('58895985a22c04e761776d54');
+//    expect(page.getUniqueTodo('58895985c1849992336c219b')).toBeNull();
+
+    page.resetIDSearch();
+    expect(page.getUniqueTodo('58895985c1849992336c219b')).toEqual("58895985c1849992336c219b");
   });
 
 });

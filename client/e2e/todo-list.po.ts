@@ -1,4 +1,5 @@
 import {browser, by, element, Key} from 'protractor';
+import {tryCatch} from "rxjs/util/tryCatch";
 
 export class TodoPage {
   navigateTo() {
@@ -60,13 +61,24 @@ export class TodoPage {
     input.click();
   }
 
+  resetIDSearch() {
+    let input = element(by.id('2'));
+    input.click();
+  }
+
   backspace(){
     browser.actions().sendKeys(Key.BACK_SPACE).perform();
   }
 
   getUniqueTodo(todo_id:string) {
-    let todo = element(by.id(todo_id)).getText();
-    this.highlightElement(by.id(todo_id));
+    let todo = null;
+    try{
+      todo = element(by.id(todo_id)).getText();
+      this.highlightElement(by.id(todo_id));
+    } catch(e) {
+      console.log(e);
+      todo = null;
+    }
 
     return todo;
   }

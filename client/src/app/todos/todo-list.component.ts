@@ -47,7 +47,6 @@ export class TodoListComponent implements OnInit {
     }
 
     // Filter by status
-/*
     if (searchStatus != null) {
       this.filteredTodos = this.filteredTodos.filter((todo) => {
         if(searchStatus.toLowerCase() == "true" || searchStatus.toLowerCase() == "complete"){
@@ -60,7 +59,7 @@ export class TodoListComponent implements OnInit {
         return false;
       });
     }
-*/
+
     //filter by category
     if (searchCategory != null) {
       this.filteredTodos = this.filteredTodos.filter(todo => {
@@ -100,11 +99,9 @@ export class TodoListComponent implements OnInit {
 
   refreshTodo(): Observable<Todo> {
 
-    console.log("this actually happened");
     const todo: Observable<Todo> = this.todoListService.getTodoById(this.todoID);
     todo.subscribe(
       returnedTodo => {
-        console.log("I was in here the whole time");
         this.todos = [];
         this.todos.push(returnedTodo)
         this.filterTodos(this.todoOwner, this.todoStatus, this.todoCategory, this.todoBody );

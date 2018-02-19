@@ -55,7 +55,7 @@ describe( 'Todo component', () => {
   }));
 
   it('can retrieve Fry by ID', () => {
-    todoComponent.setId('fry_id');
+    todoComponent.setId('58895985c1849992336c219b');
     expect(todoComponent.todo).toBeDefined();
     expect(todoComponent.todo.owner).toBe('Fry');
     expect(todoComponent.todo.category).toBe('video games');

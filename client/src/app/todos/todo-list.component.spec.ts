@@ -96,15 +96,15 @@ describe('Todo list', () => {
       .subscribe(x => expect(todoList.filteredTodos.length).toBe(2));
   });
 
-  it('todo list filters by category', () => {
+  it('filters by category', () => {
     expect(todoList.filteredTodos.length).toBe(3);
-    todoList.todoCategory = "hoemwork";
+    todoList.todoCategory = "homework";
     const a: Observable<Todo[]> = todoList.refreshTodos();
     a.do(x => Observable.of(x))
       .subscribe(x => expect(todoList.filteredTodos.length).toBe(2));
   });
 
-  it('todo list filters by owner and status', () => {
+  it('filters by owner and status', () => {
     expect(todoList.filteredTodos.length).toBe(3);
     todoList.todoOwner = 'Blanche';
     todoList.todoStatus = "false";
