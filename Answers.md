@@ -12,3 +12,9 @@ It's kept separate because a service is loaded when the page is loaded, and kept
 
 Chose to use angular filtering for the majority of categories because it reduced the number of queries to the server.
 Chose to use server side filtering for ID's because it implied the user knew what they were looking for, which meant there would typically only be one query to the server.
+
+In addition to this, choosing server side filtering for ID's simplified the process of implementing its functionality.
+This is because it already had a pre-built function to query the server with, which meant not altering our pre-existing function or writing a new one, while at the same time allowing us to not have to guess at what the API routes were.
+Though we did try to implement others (which can be seen as commented out sections of ghost code in todo-list.service.ts). We decided against this, however, because it conflicted with assumptions about the getTodos() function that were used for making all of our tests.
+If we were to abandon the hours spent testing, the code could be quickly implemented by adding a new button in the html that ran the getTodos() function. Then altering the getTodos() function to take the "status" argument, as well as giving it the argument where it is called in todo-list.component.
+This can be further expanded by providing it more arguments, and providing a modular way of generating the URL.
